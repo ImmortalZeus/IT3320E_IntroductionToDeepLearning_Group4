@@ -60,6 +60,10 @@ if "!CUDA_CODE!"=="118" (
     set TORCH_TAG=cu121
 ) else if "!CUDA_CODE!"=="124" (
     set TORCH_TAG=cu121
+) else if "!CUDA_CODE!"=="125" (
+    set TORCH_TAG=cu121
+) else if "!CUDA_CODE!"=="126" (
+    set TORCH_TAG=cu121
 ) else if "!CUDA_CODE!"=="127" (
     set TORCH_TAG=cu121
 ) else if "!CUDA_CODE!"=="128" (
