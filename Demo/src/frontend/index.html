@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Facial Emotion Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    /* Quick helper for hiding sections */
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Facial Emotion Detection</h1>
+
+    <!-- Mode switch button -->
+    <button id="switchModeBtn">Switch to Camera Mode</button>
+
+    <!-- Upload mode section (default visible) -->
+    <div id="uploadMode">
+      <form id="uploadForm">
+        <input type="file" id="imageInput" accept="image/*" required>
+        <button type="submit">Upload Image</button>
+      </form>
+
+      <div id="uploadResult">
+        <h2>Prediction Result</h2>
+        <p id="uploadEmotion"></p>
+        <div id="uploadProbabilities"></div>
+        <canvas id="uploadCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Camera mode section (hidden by default) -->
+    <div id="cameraMode" class="hidden">
+      <div class="preview">
+        <video id="video" autoplay playsinline></video>
+        <canvas id="overlay"></canvas>
+      </div>
+
+      <div class="controls">
+        <button id="startBtn">Start Camera</button>
+        <button id="captureBtn" disabled>Capture & Detect</button>
+        <select id="cameraSelect"></select>
+      </div>
+
+      <div id="cameraResult">
+        <h2>Prediction Result</h2>
+        <p id="cameraEmotion"></p>
+        <div id="cameraProbabilities"></div>
+        <canvas id="snapshot"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='notify.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='sweetalert.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='image.js') }}"></script>
+  <script src="{{ url_for('static', filename='cam.js') }}"></script>
+  <script>
+    // Mode switch logic
+    const switchBtn = document.getElementById("switchModeBtn");
+    const uploadMode = document.getElementById("uploadMode");
+    const cameraMode = document.getElementById("cameraMode");
+
+    let currentMode = "upload"; // default
+
+    switchBtn.addEventListener("click", async () => {
+      if (currentMode === "upload") {
+        uploadMode.classList.add("hidden");
+        cameraMode.classList.remove("hidden");
+        switchBtn.textContent = "Switch to Upload Mode";
+        currentMode = "camera";
+        if (window.CameraController) await window.CameraController.start();
+      } else {
+        if (window.CameraController) await window.CameraController.stop();
+        cameraMode.classList.add("hidden");
+        uploadMode.classList.remove("hidden");
+        switchBtn.textContent = "Switch to Camera Mode";
+        currentMode = "upload";
+    }
+    });
+  </script>
+</body>
+</html>

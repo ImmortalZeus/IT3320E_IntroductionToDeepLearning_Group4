@@ -1,0 +1,170 @@
+/* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* Centered container */
+.container {
+  margin-top: 40px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 700px;
+  text-align: center;
+}
+
+/* Title */
+h1 {
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+/* Mode switch button */
+#switchModeBtn {
+  background-color: #0078d7;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+#switchModeBtn:hover {
+  background-color: #005a9e;
+}
+
+/* Upload form */
+#uploadForm {
+  margin-bottom: 20px;
+}
+#uploadForm input[type="file"] {
+  margin: 10px 0;
+}
+#uploadForm button {
+  background-color: #0078d7;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+#uploadForm button:hover {
+  background-color: #005a9e;
+}
+
+/* Camera preview area */
+.preview {
+  position: relative;
+  display: inline-block;
+}
+#video, #overlay {
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  max-width: 100%;
+}
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Camera controls */
+.controls {
+  margin: 15px 0;
+}
+.controls button {
+  background-color: #0078d7;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0 5px;
+}
+.controls button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+.controls button:hover:not(:disabled) {
+  background-color: #005a9e;
+}
+.controls select {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  margin-left: 10px;
+}
+
+/* Result section */
+#uploadResult, #cameraResult {
+  margin-top: 20px;
+  text-align: left;
+}
+#uploadResult h2, #cameraResult h2 {
+  color: #444444;
+  margin-bottom: 10px;
+}
+#uploadEmotion, #cameraEmotion {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0078d7;
+}
+#uploadProbabilities, #cameraProbabilities {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555555;
+}
+
+/* Emotion bar styling */
+.emotion-bar {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+}
+.label {
+  width: 80px;
+  font-weight: bold;
+}
+.bar {
+  flex: 1;
+  background: #eee;
+  height: 16px;
+  border-radius: 8px;
+  margin: 0 10px;
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  border-radius: 8px;
+}
+.percent {
+  width: 60px;
+  text-align: right;
+}
+
+/* Color coding per emotion */
+.fill.Angry   { background: #e74c3c; }
+.fill.Disgust { background: #27ae60; }
+.fill.Fear    { background: #8e44ad; }
+.fill.Happy   { background: #f1c40f; }
+.fill.Neutral { background: #95a5a6; }
+.fill.Sad     { background: #3498db; }
+.fill.Surprise{ background: #e67e22; }
+
+/* Canvases */
+#uploadCanvas, #snapshot {
+  margin-top: 20px;
+  border: 1px solid #cccccc;
+  max-width: 100%;
+}
