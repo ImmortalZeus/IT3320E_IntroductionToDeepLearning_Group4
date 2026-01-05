@@ -1,9 +1,5 @@
 # Facial Emotion Recognition using CNN & Transfer Learning (ResNet18)
 
-## Install dependencies
-
-
-
 ## Project Overview
 
 This project focuses on facial emotion recognition using the FER2013 dataset.
@@ -92,3 +88,4 @@ Link to the dataset:
 | ----------- | :----: | :----: | :----: | ----------- | :----: | :----: | :----: |
 | Group's CNN | 59.47% | 65.45% | 42.61% | 88.74% | 59.40% | 80.77% | 71.09 | 
 | ResNet18 | 55.60% | 72.73% | 51.33% | 91.58% | 62.63% | 82.69% | 73.16% | 
+
